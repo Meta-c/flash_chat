@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
@@ -57,14 +58,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     height: 60,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.blueGrey,
-                  ),
-                ),
+                AnimatedTextKit(animatedTexts: [
+                  TypewriterAnimatedText('Flash Chat',
+                      textStyle: TextStyle(
+                        fontSize: 45.0,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.black,
+                      ),
+                      speed: const Duration(milliseconds: 200)),
+                ])
               ],
             ),
             SizedBox(
