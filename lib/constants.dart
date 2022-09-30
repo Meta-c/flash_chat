@@ -19,3 +19,9 @@ const kMessageContainerDecoration = BoxDecoration(
 );
 
 const kLogoHeroTag = 'logo';
+
+const kWelcomeScreenTextStyle = TextStyle(
+  fontSize: 45.0,
+  fontWeight: FontWeight.w900,
+  color: Colors.black,
+);

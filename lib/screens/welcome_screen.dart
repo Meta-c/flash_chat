@@ -4,6 +4,7 @@ import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/main.dart';
 import 'package:flash_chat/constants.dart';
+import 'package:flash_chat/welcome_screen_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome';
@@ -21,15 +22,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
     controller =
         AnimationController(duration: Duration(seconds: 1), vsync: this);
-
     animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
         .animate(controller);
-
     controller.forward();
     controller.addListener(() {
       setState(() {});
     });
-    print(animation.value);
   }
 
   @override
@@ -60,11 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
                 AnimatedTextKit(animatedTexts: [
                   TypewriterAnimatedText('Flash Chat',
-                      textStyle: TextStyle(
-                        fontSize: 45.0,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.black,
-                      ),
+                      textStyle: kWelcomeScreenTextStyle,
                       speed: const Duration(milliseconds: 200)),
                 ])
               ],
@@ -72,42 +66,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            WelcomeScreenButtons(
+              buttonText: 'Login',
+              buttonColor: Colors.lightBlueAccent,
+              routeName: LoginScreen.id,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
-            ),
+            WelcomeScreenButtons(
+                buttonText: 'Register',
+                buttonColor: Colors.blueAccent,
+                routeName: RegistrationScreen.id)
           ],
         ),
       ),
