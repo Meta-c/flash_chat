@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:flash_chat/welcome_screen_button.dart';
-import 'package:flash_chat/registration_text_field.dart';
+import 'package:flash_chat/input_text_field.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration';
@@ -30,13 +30,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 48.0,
             ),
-            RegistrationTextField(
+            InputTextField(
               hintText: 'Enter Your Email',
             ),
             SizedBox(
               height: 8.0,
             ),
-            RegistrationTextField(hintText: 'Enter Your Password'),
+            InputTextField(hintText: 'Enter Your Password'),
             SizedBox(
               height: 24.0,
             ),

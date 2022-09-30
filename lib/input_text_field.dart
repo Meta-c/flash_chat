@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RegistrationTextField extends StatelessWidget {
-  RegistrationTextField({required this.hintText});
+class InputTextField extends StatelessWidget {
+  InputTextField({required this.hintText});
 
   String hintText = '';
 
