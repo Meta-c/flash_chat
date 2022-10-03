@@ -88,8 +88,10 @@ class _ChatScreenState extends State<ChatScreen> {
                     children: messageWidgets,
                   );
                 } else
-                  return Column(
-                    children: [Text('ERROR')],
+                  return Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                    ),
                   );
               },
             ),
