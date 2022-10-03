@@ -1,17 +1,26 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
-  InputTextField({required this.hintText});
+  InputTextField(
+      {required this.hintText,
+      //  required this.input,
+      required this.obscure,
+      required this.onchange});
 
   String hintText = '';
+  String input = '';
+  bool obscure = false;
+  late String Function(String input) onchange;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       style: TextStyle(color: Colors.black),
-      onChanged: (value) {
-        //Do something with the user input.
-      },
+      onChanged: onchange,
+      obscureText: obscure,
+      textAlign: TextAlign.center,
       decoration: InputDecoration(
         hintStyle: TextStyle(color: Colors.blueGrey),
         floatingLabelBehavior: FloatingLabelBehavior.always,

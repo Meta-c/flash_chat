@@ -67,14 +67,19 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               height: 48.0,
             ),
             WelcomeScreenButtons(
-              buttonText: 'Login',
-              buttonColor: Colors.lightBlueAccent,
-              routeName: LoginScreen.id,
-            ),
+                buttonText: 'Login',
+                buttonColor: Colors.lightBlueAccent,
+                onPress: () {
+                  Navigator.pushNamed(context, LoginScreen.id);
+                }),
             WelcomeScreenButtons(
                 buttonText: 'Register',
                 buttonColor: Colors.blueAccent,
-                routeName: RegistrationScreen.id)
+                onPress: () {
+                  setState(() {
+                    Navigator.pushNamed(context, RegistrationScreen.id);
+                  });
+                }),
           ],
         ),
       ),

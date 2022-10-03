@@ -4,10 +4,12 @@ class WelcomeScreenButtons extends StatelessWidget {
   WelcomeScreenButtons(
       {required this.buttonText,
       required this.buttonColor,
-      required this.routeName});
+      // required this.routeName,
+      required this.onPress});
   String buttonText = '';
-  String routeName = '';
+  // String routeName = '';
   late Color buttonColor;
+  late final void Function() onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +20,7 @@ class WelcomeScreenButtons extends StatelessWidget {
         color: buttonColor,
         borderRadius: BorderRadius.circular(30.0),
         child: MaterialButton(
-          onPressed: () {
-            Navigator.pushNamed(context, routeName);
-          },
+          onPressed: onPress,
           minWidth: 200.0,
           height: 42.0,
           child: Text(
