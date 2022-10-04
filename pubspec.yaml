@@ -37,6 +37,7 @@ dependencies:
   firebase_auth: ^3.11.0
   cloud_firestore: ^3.5.0
   modal_progress_hud_nsn: ^0.3.0
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:
