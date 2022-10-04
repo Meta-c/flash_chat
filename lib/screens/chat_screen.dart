@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flash_chat/MessageStream.dart';
 
 final _fireStore = FirebaseFirestore.instance;
+late User loggedInUser;
 
 class ChatScreen extends StatefulWidget {
   static const String id = 'chat';
@@ -15,7 +16,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final messageTextController = TextEditingController();
   final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+
   String messageText = '';
 
   void getCurrentUser() async {
@@ -83,8 +84,11 @@ class _ChatScreenState extends State<ChatScreen> {
                   FlatButton(
                     onPressed: () {
                       messageTextController.clear();
-                      _fireStore.collection('messages').add(
-                          {'Text': messageText, 'Sender': loggedInUser.email});
+                      _fireStore.collection('messages').add({
+                        'Text': messageText,
+                        'Sender': loggedInUser.email,
+                        'timestamp': FieldValue.serverTimestamp()
+                      });
                     },
                     child: Text(
                       'Send',

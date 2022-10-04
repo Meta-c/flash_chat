@@ -38,16 +38,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Hero(
-                tag: kLogoHeroTag,
-                child: Container(
-                  height: 200.0,
-                  child: TextButton(
-                      child: Image.asset('images/logo.png'),
-                      onPressed: () => setState(() {
-                            Navigator.popAndPushNamed(
-                                context, WelcomeScreen.id);
-                          })),
+              Flexible(
+                child: Hero(
+                  tag: kLogoHeroTag,
+                  child: Container(
+                    height: 200.0,
+                    child: TextButton(
+                        child: Image.asset('images/logo.png'),
+                        onPressed: () => setState(() {
+                              Navigator.popAndPushNamed(
+                                  context, WelcomeScreen.id);
+                            })),
+                  ),
                 ),
               ),
               SizedBox(
